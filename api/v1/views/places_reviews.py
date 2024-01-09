@@ -50,12 +50,12 @@ def review_post(place_id):
     newreview = request.get_json()
     if not newreview:
         abort(400, "Not a JSON")
-    if user_id not in newreview:
+    if 'user_id' not in newreview:
         abort(400, "Missing user_id")
     user_id = newreview['user_id']
     if not storage.get("User", user_id):
         abort(404)
-    if text not in newreview:
+    if 'text' not in newreview:
         abort(400, "Missing text")
     review = Review(**newreview)
     setattr(review, 'place_id', place_id)
