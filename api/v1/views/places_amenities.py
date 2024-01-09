@@ -41,8 +41,8 @@ def amenity_del(place_id, amenity_id):
     else:
         if amenity_id not in place.amenity_ids:
             abort(404)
-        i = place.amenity_ids.i(amenity_id)
-        place.amenity_ids.pop(i)
+        index = place.amenity_ids.index(amenity_id)
+        place.amenity_ids.pop(index)
 
     amenity.delete()
     storage.save()
