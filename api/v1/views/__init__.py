@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""
-   a Blueprint instance with the name 'app_views'
+"""a Blueprint instance with the name 'app_views'
 """
 from flask import Blueprint
 

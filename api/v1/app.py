@@ -13,7 +13,7 @@ app.register_blueprint(app_views)
 
 @app.teardown_appcontext
 def teardown(exception):
-    """ calls storage.close() """
+    """ calls storage.close() and closses a session """
     storage.close()
 
 
@@ -27,5 +27,5 @@ def not_found(error):
 
 if __name__ == '__main__':
     host = os.getenv("HBNB_API_HOST", "0.0.0.0")
-    port = os.getenv("HBNB_API_PORT", "5000")
+    port = os.getenv("HBNB_API_PORT", 5000)
     app.run(host=host, port=port, threaded=True)
