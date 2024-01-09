@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""
-view for User objects that handles all default RESTFul API actions
+"""view for User objects that handles all default RESTFul API actions
 """
 from api.v1.views import app_views
 from flask import jsonify, request, abort, make_response
@@ -38,7 +37,7 @@ def delete_user(user_id):
 
 @app_views.route('/users', methods=['POST'], strict_slashes=False)
 def user_post():
-    """ Creates a User """
+    """ Creates a User object """
     newuser = request.get_json()
     if not newuser:
         abort(400, "Not a JSON")
@@ -55,7 +54,7 @@ def user_post():
 
 @app_views.route('/users/<user_id>', methods=['PUT'], strict_slashes=False)
 def user_put(user_id):
-    """ Updates a User object """
+    """ Updates a User object object """
     user = storage.get("User", user_id)
     if not user:
         abort(404)
